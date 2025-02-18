@@ -1,0 +1,9 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <EnglishText>
+        <Row Tag="LOC_UI_MINIMAP_TREASURE">
+            <Text>Treasure</Text>
+        </Row>
+    </EnglishText>
+</Database>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Database>
+    <EnglishText>
+        <Row Tag="LOC_MOD_TREASURE_LENS_NAME">
+            <Text>Treasure Lens</Text>
+        </Row>
+        <Row Tag="LOC_MOD_TREASURE_LENS_DESCRIPTION">
+            <Text>An additional lens for highlighting treasure resources, like sugar and tea.</Text>
+        </Row>
+    </EnglishText>
+</Database>

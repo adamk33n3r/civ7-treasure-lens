@@ -8,10 +8,7 @@ class PanelMiniMapDecorator {
     beforeAttach() {}
 
     afterAttach() {
-        const isExplorationAge = Game.age == Game.getHash("AGE_EXPLORATION")
-        if (isExplorationAge) {
-            this.minimap.createLensButton("LOC_UI_MINIMAP_TREASURE", LENS_ID, "lens-group");
-        }
+        this.minimap.createLensButton("LOC_UI_MINIMAP_TREASURE", LENS_ID, "lens-group");
     }
 
     beforeDetach() {}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Mod id="treasure-lens" version="1.0.1" xmlns="ModInfo">
+<Mod id="treasure-lens" version="1" xmlns="ModInfo">
     <Properties>
         <Name>LOC_MOD_TREASURE_LENS_NAME</Name>
         <Description>LOC_MOD_TREASURE_LENS_DESCRIPTION</Description>
@@ -16,7 +16,6 @@
         <ActionGroup id="game-treasure-lens" scope="game" criteria="exploration-age-current">
             <Actions>
                 <UIScripts>
-                    <!-- <Item>ui/events/unit-selection-listener.js</Item> -->
                     <Item>ui/lenses/layer/treasure-layer.js</Item>
                     <Item>ui/lenses/lens/treasure-lens.js</Item>
                     <Item>ui/decorators/panel-mini-map.js</Item>

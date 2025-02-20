@@ -1,0 +1,45 @@
+name: Bundle Release
+
+on:
+  # runs when you either create a new tag or push an existing one
+  create:
+
+jobs:
+  create-release:
+    if: ${{ startsWith(github.ref, 'refs/tags/v') }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # needed to create a release
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          show-progress: false
+          fetch-depth: 0
+
+      - run: git fetch --tags --force
+
+      - name: Set environment variables
+        run: |
+          VERSION_CHANGELOG=$(git log $(git describe --tags --abbrev=0 @^)..@ --pretty=%B)
+
+          echo "CHANGELOG<<EOF"$'\n'"$VERSION_CHANGELOG"$'\n'EOF >> $GITHUB_ENV
+          echo "ZIPFILE=treasure-lens-${GITHUB_REF_NAME}.zip" >> $GITHUB_ENV
+
+      - name: Copy files for zip
+        run: |
+          mkdir -p civ7-treasure-lens
+          cp -r treasure-lens.modinfo globals.js text/ ui/ LICENSE README.md civ7-treasure-lens/
+      
+      - name: Create ZIP
+        run: |
+          zip -r $ZIPFILE civ7-treasure-lens/
+
+      - name: Create GitHub release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: ${{ env.ZIPFILE }}
+          body: ${{ env.CHANGELOG }}
+          tag: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
+          makeLatest: true

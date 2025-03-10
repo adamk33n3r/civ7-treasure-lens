@@ -1,6 +1,6 @@
 import { LENS_ID } from '../../globals.js';
 
-class PanelMiniMapDecorator {
+class LensPanelDecorator {
     constructor(minimap) {
         this.minimap = minimap;
     }
@@ -18,4 +18,4 @@ class PanelMiniMapDecorator {
     onAttributeChanged(name, oldValue, newValue) {}
 }
 
-Controls.decorate('panel-mini-map', (minimap) => new PanelMiniMapDecorator(minimap));
+Controls.decorate('lens-panel', (minimap) => new LensPanelDecorator(minimap));
